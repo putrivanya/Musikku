@@ -1,0 +1,1659 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap");
+
+:root {
+  --mk-bg: #faf7f1;
+  --mk-white: #ffffff;
+  --mk-cream: #f3ede2;
+  --mk-cream-dark: #e9dece;
+  --mk-brown: #75543e;
+  --mk-brown-dark: #4e3527;
+  --mk-brown-light: #a9876d;
+  --mk-text: #382c25;
+  --mk-muted: #8d8177;
+  --mk-border: #e9e1d7;
+  --mk-green: #47765a;
+  --mk-green-bg: #eaf4ed;
+  --mk-yellow: #a8752c;
+  --mk-yellow-bg: #fbf1df;
+  --mk-red: #a34f46;
+  --mk-red-bg: #f9eae8;
+  --mk-shadow: 0 12px 35px rgba(75, 51, 34, 0.07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--mk-bg);
+  color: var(--mk-text);
+  font-family: "DM Sans", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.musikku-app {
+  min-height: 100vh;
+  background: var(--mk-bg);
+}
+
+/* NAVBAR */
+
+.musikku-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--mk-border);
+  backdrop-filter: blur(12px);
+}
+
+.musikku-navbar-inner {
+  width: min(1180px, calc(100% - 48px));
+  min-height: 78px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.musikku-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--mk-brown-dark);
+  text-align: left;
+}
+
+.musikku-brand-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--mk-brown);
+  color: white;
+  font-size: 25px;
+}
+
+.musikku-brand strong {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.musikku-brand small {
+  display: block;
+  margin-top: 3px;
+  color: var(--mk-muted);
+  font-size: 11px;
+}
+
+.musikku-nav {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.musikku-nav button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #75675d;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.musikku-nav button:hover,
+.musikku-nav button.active {
+  background: var(--mk-cream);
+  color: var(--mk-brown-dark);
+}
+
+.musikku-nav-badge {
+  min-width: 19px;
+  height: 19px;
+  display: grid;
+  place-items: center;
+  padding: 0 5px;
+  border-radius: 20px;
+  background: var(--mk-red);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.musikku-account {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.musikku-avatar {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--mk-cream-dark);
+  color: var(--mk-brown-dark);
+  font-weight: 800;
+}
+
+.musikku-account-name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 85px;
+}
+
+.musikku-account-name span {
+  color: var(--mk-muted);
+  font-size: 10px;
+}
+
+.musikku-account-name strong {
+  max-width: 145px;
+  overflow: hidden;
+  color: var(--mk-text);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.musikku-logout-button {
+  margin-left: 7px;
+  padding: 9px 13px;
+  border: 1px solid #e8d9cf;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--mk-brown);
+  font-size: 12px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.musikku-logout-button:hover {
+  border-color: var(--mk-brown);
+  background: var(--mk-cream);
+}
+
+/* MAIN */
+
+.musikku-main {
+  width: min(1180px, calc(100% - 48px));
+  min-height: 70vh;
+  margin: 0 auto;
+  padding: 34px 0 70px;
+}
+
+.musikku-eyebrow {
+  display: inline-block;
+  color: var(--mk-brown-light);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.musikku-hero {
+  position: relative;
+  min-height: 355px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 55px 65px;
+  border-radius: 22px;
+  background: linear-gradient(115deg, #eadccc 0%, #f3eade 54%, #dfc9b5 100%);
+}
+
+.musikku-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 570px;
+}
+
+.musikku-hero h1 {
+  margin: 17px 0 15px;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 49px);
+  line-height: 1.2;
+}
+
+.musikku-hero p {
+  max-width: 440px;
+  margin: 0 0 25px;
+  color: #78665a;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.musikku-primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 43px;
+  padding: 11px 19px;
+  border: 1px solid var(--mk-brown);
+  border-radius: 9px;
+  background: var(--mk-brown);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.musikku-primary-button:hover:not(:disabled) {
+  border-color: var(--mk-brown-dark);
+  background: var(--mk-brown-dark);
+  transform: translateY(-1px);
+}
+
+.musikku-primary-button:disabled {
+  transform: none;
+}
+
+.musikku-hero-decoration {
+  position: absolute;
+  top: 0;
+  right: 4%;
+  width: 390px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  opacity: 0.8;
+}
+
+.musikku-hero-circle {
+  width: 245px;
+  height: 245px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(117, 84, 62, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow:
+    0 0 0 25px rgba(255, 255, 255, 0.12),
+    0 0 0 55px rgba(255, 255, 255, 0.1);
+}
+
+.musikku-hero-circle span {
+  color: var(--mk-brown);
+  font-family: "Playfair Display", serif;
+  font-size: 125px;
+}
+
+.musikku-note {
+  position: absolute;
+  color: var(--mk-brown);
+  font-family: Georgia, serif;
+}
+
+.note-one {
+  top: 45px;
+  left: 30px;
+  font-size: 55px;
+  transform: rotate(-15deg);
+}
+
+.note-two {
+  right: 20px;
+  bottom: 35px;
+  font-size: 75px;
+  transform: rotate(13deg);
+}
+
+/* STATISTIK */
+
+.musikku-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin: 25px 0 55px;
+}
+
+.musikku-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 100px;
+  padding: 20px 23px;
+  border: 1px solid var(--mk-border);
+  border-radius: 14px;
+  background: white;
+  box-shadow: var(--mk-shadow);
+}
+
+.musikku-stat-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--mk-cream);
+  color: var(--mk-brown);
+  font-size: 23px;
+}
+
+.musikku-stat-card strong {
+  display: block;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+}
+
+.musikku-stat-card span:last-child {
+  display: block;
+  margin-top: 3px;
+  color: var(--mk-muted);
+  font-size: 11px;
+}
+
+/* SECTION */
+
+.musikku-section {
+  margin-top: 48px;
+}
+
+.musikku-page-section {
+  margin-top: 8px;
+}
+
+.musikku-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 23px;
+}
+
+.musikku-section-heading h1,
+.musikku-section-heading h2 {
+  margin: 8px 0 7px;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 29px;
+}
+
+.musikku-section-heading p {
+  margin: 0;
+  color: var(--mk-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.musikku-text-button {
+  padding: 9px 0;
+  border: 0;
+  background: transparent;
+  color: var(--mk-brown);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.musikku-text-button:hover {
+  color: var(--mk-brown-dark);
+}
+
+/* KATALOG */
+
+.musikku-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.musikku-product-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--mk-border);
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 5px 20px rgba(75, 51, 34, 0.035);
+  transition: 0.22s ease;
+}
+
+.musikku-product-card:hover {
+  border-color: #d8c5b3;
+  box-shadow: var(--mk-shadow);
+  transform: translateY(-4px);
+}
+
+.musikku-product-image {
+  position: relative;
+  height: 180px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #f4f0e9;
+}
+
+.musikku-product-image img {
+  width: 100%;
+  height: 100%;
+  padding: 13px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.musikku-product-card:hover .musikku-product-image img {
+  transform: scale(1.04);
+}
+
+.musikku-image-placeholder,
+.musikku-product-image.image-error::after {
+  display: grid;
+  place-items: center;
+  color: #b59a83;
+  font-family: "Playfair Display", serif;
+  font-size: 58px;
+}
+
+.musikku-product-image.image-error::after {
+  content: "♫";
+  position: absolute;
+  inset: 0;
+}
+
+.musikku-stock-badge {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: var(--mk-green-bg);
+  color: var(--mk-green);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.musikku-stock-badge.unavailable {
+  background: var(--mk-red-bg);
+  color: var(--mk-red);
+}
+
+.musikku-product-content {
+  padding: 16px;
+}
+
+.musikku-product-category {
+  color: var(--mk-brown-light);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.musikku-product-content h3 {
+  margin: 7px 0 5px;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+}
+
+.musikku-product-brand {
+  margin: 0;
+  color: var(--mk-muted);
+  font-size: 11px;
+}
+
+.musikku-product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 17px;
+  padding-top: 13px;
+  border-top: 1px solid #f0ebe5;
+}
+
+.musikku-product-bottom > span {
+  color: var(--mk-muted);
+  font-size: 10px;
+}
+
+.musikku-product-bottom strong {
+  color: var(--mk-brown-dark);
+}
+
+.musikku-product-button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--mk-brown);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.musikku-product-button:hover:not(:disabled) {
+  background: var(--mk-brown-dark);
+}
+
+.musikku-product-button:disabled {
+  background: #d5ccc3;
+}
+
+/* FILTER */
+
+.musikku-filter {
+  margin-bottom: 25px;
+}
+
+.musikku-search {
+  width: min(480px, 100%);
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1px solid var(--mk-border);
+  border-radius: 10px;
+  background: white;
+}
+
+.musikku-search > span {
+  color: var(--mk-brown-light);
+  font-size: 24px;
+}
+
+.musikku-search input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--mk-text);
+  font-size: 12px;
+}
+
+.musikku-search input::placeholder {
+  color: #b4aaa1;
+}
+
+.musikku-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.musikku-category-list button {
+  padding: 8px 14px;
+  border: 1px solid var(--mk-border);
+  border-radius: 30px;
+  background: white;
+  color: #7e7167;
+  font-size: 10px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.musikku-category-list button:hover,
+.musikku-category-list button.active {
+  border-color: var(--mk-brown);
+  background: var(--mk-brown);
+  color: white;
+}
+
+/* PERSYARATAN */
+
+.musikku-rule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.musikku-rule-card {
+  padding: 23px;
+  border: 1px solid var(--mk-border);
+  border-radius: 13px;
+  background: white;
+}
+
+.musikku-rule-number {
+  color: #c1a68e;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+}
+
+.musikku-rule-card h3 {
+  margin: 12px 0 8px;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+}
+
+.musikku-rule-card p {
+  margin: 0;
+  color: var(--mk-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.musikku-fine-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 27px;
+  border-radius: 14px;
+  background: #eee3d6;
+}
+
+.musikku-fine-panel h3 {
+  margin: 8px 0;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.musikku-fine-panel p {
+  max-width: 410px;
+  margin: 0;
+  color: #806d5e;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.musikku-fine-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.musikku-fine-list div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(117, 84, 62, 0.15);
+}
+
+.musikku-fine-list div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.musikku-fine-list span {
+  color: #806d5e;
+  font-size: 11px;
+}
+
+.musikku-fine-list strong {
+  color: var(--mk-brown-dark);
+  font-size: 12px;
+}
+
+/* RIWAYAT */
+
+.musikku-refresh-button {
+  padding: 10px 15px;
+  border: 1px solid var(--mk-border);
+  border-radius: 9px;
+  background: white;
+  color: var(--mk-brown);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.musikku-refresh-button:hover {
+  background: var(--mk-cream);
+}
+
+.musikku-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.musikku-history-card {
+  padding: 22px;
+  border: 1px solid var(--mk-border);
+  border-radius: 13px;
+  background: white;
+  box-shadow: 0 5px 18px rgba(75, 51, 34, 0.035);
+}
+
+.musikku-history-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.musikku-history-id {
+  color: var(--mk-brown-light);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.musikku-history-top h3 {
+  margin: 6px 0 0;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+}
+
+.musikku-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 11px;
+  border-radius: 30px;
+  background: var(--mk-yellow-bg);
+  color: var(--mk-yellow);
+  font-size: 9px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.status-dipinjam,
+.status-selesai {
+  background: var(--mk-green-bg);
+  color: var(--mk-green);
+}
+
+.status-terlambat,
+.status-ditolak {
+  background: var(--mk-red-bg);
+  color: var(--mk-red);
+}
+
+.status-disetujui {
+  background: #edf0f8;
+  color: #586b9b;
+}
+
+.musikku-history-details {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  padding: 16px 0;
+  border-top: 1px solid #f0ebe5;
+  border-bottom: 1px solid #f0ebe5;
+}
+
+.musikku-history-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.musikku-history-details span {
+  color: var(--mk-muted);
+  font-size: 10px;
+}
+
+.musikku-history-details strong {
+  color: var(--mk-text);
+  font-size: 11px;
+}
+
+.musikku-info-alert,
+.musikku-warning-alert,
+.musikku-danger-alert,
+.musikku-success-alert {
+  margin-top: 15px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.musikku-info-alert {
+  background: #f0f1f6;
+  color: #596580;
+}
+
+.musikku-warning-alert {
+  background: var(--mk-yellow-bg);
+  color: #91621e;
+}
+
+.musikku-danger-alert {
+  background: var(--mk-red-bg);
+  color: var(--mk-red);
+}
+
+.musikku-success-alert {
+  background: var(--mk-green-bg);
+  color: var(--mk-green);
+}
+
+.musikku-return-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 15px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f7f3ed;
+}
+
+.musikku-return-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.musikku-return-info strong {
+  color: var(--mk-brown-dark);
+  font-size: 12px;
+}
+
+.musikku-return-info span {
+  color: var(--mk-muted);
+  font-size: 10px;
+}
+
+/* EMPTY STATE */
+
+.musikku-empty {
+  grid-column: 1 / -1;
+  padding: 35px 20px;
+  border: 1px dashed #d8c9ba;
+  border-radius: 12px;
+  background: #fffdfa;
+  color: var(--mk-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.musikku-empty-large {
+  padding: 55px 20px;
+}
+
+.musikku-empty-large > span {
+  color: #b99d85;
+  font-family: "Playfair Display", serif;
+  font-size: 55px;
+}
+
+.musikku-empty-large h3 {
+  margin: 12px 0 7px;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+}
+
+.musikku-empty-large p {
+  margin: 0 0 20px;
+  color: var(--mk-muted);
+  font-size: 11px;
+}
+
+/* MODAL */
+
+.musikku-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 25px 15px;
+  background: rgba(40, 29, 22, 0.48);
+  backdrop-filter: blur(3px);
+}
+
+.musikku-modal {
+  width: min(570px, 100%);
+  max-height: calc(100vh - 50px);
+  overflow-y: auto;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 17px;
+  background: white;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+  animation: musikku-modal-in 0.2s ease;
+}
+
+@keyframes musikku-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.musikku-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.musikku-modal-header h2 {
+  margin: 6px 0;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+}
+
+.musikku-modal-header p {
+  margin: 0;
+  color: var(--mk-muted);
+  font-size: 11px;
+}
+
+.musikku-modal-close {
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--mk-cream);
+  color: var(--mk-brown);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.musikku-modal-close:hover {
+  background: var(--mk-cream-dark);
+}
+
+.musikku-selected-product,
+.musikku-return-product {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid var(--mk-border);
+  border-radius: 10px;
+  background: #fdfbf8;
+}
+
+.musikku-selected-product img {
+  width: 65px;
+  height: 55px;
+  border-radius: 7px;
+  background: #f1ece5;
+  object-fit: contain;
+}
+
+.musikku-selected-placeholder {
+  width: 65px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--mk-cream);
+  color: var(--mk-brown);
+  font-size: 30px;
+}
+
+.musikku-selected-product div:last-child,
+.musikku-return-product div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.musikku-selected-product strong,
+.musikku-return-product strong {
+  color: var(--mk-brown-dark);
+  font-size: 13px;
+}
+
+.musikku-selected-product span,
+.musikku-return-product small {
+  color: var(--mk-muted);
+  font-size: 10px;
+}
+
+.musikku-return-product > span {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--mk-cream);
+  color: var(--mk-brown);
+  font-size: 27px;
+}
+
+.musikku-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.musikku-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 15px;
+}
+
+.musikku-form-full {
+  grid-column: 1 / -1;
+}
+
+.musikku-form-group label {
+  color: var(--mk-text);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.musikku-form-group input,
+.musikku-form-group select,
+.musikku-form-group textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid var(--mk-border);
+  border-radius: 8px;
+  outline: none;
+  background: #fffdfa;
+  color: var(--mk-text);
+  font-size: 11px;
+  transition: 0.2s;
+}
+
+.musikku-form-group textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+.musikku-form-group input:focus,
+.musikku-form-group select:focus,
+.musikku-form-group textarea:focus {
+  border-color: var(--mk-brown-light);
+  box-shadow: 0 0 0 3px rgba(117, 84, 62, 0.08);
+}
+
+.musikku-form-note {
+  margin: 5px 0 18px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  background: #f6f0e7;
+}
+
+.musikku-form-note strong {
+  color: var(--mk-brown-dark);
+  font-size: 11px;
+}
+
+.musikku-form-note p {
+  margin: 5px 0 0;
+  color: #806f61;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.musikku-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.musikku-secondary-button {
+  min-height: 42px;
+  padding: 10px 17px;
+  border: 1px solid var(--mk-border);
+  border-radius: 9px;
+  background: white;
+  color: #75675d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.musikku-secondary-button:hover:not(:disabled) {
+  background: var(--mk-cream);
+}
+
+/* ESTIMASI DENDA */
+
+.musikku-cost-preview {
+  margin: 5px 0 17px;
+  padding: 15px;
+  border: 1px solid #e8ddcf;
+  border-radius: 10px;
+  background: #faf6ef;
+}
+
+.musikku-cost-preview h3 {
+  margin: 0 0 13px;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+}
+
+.musikku-cost-preview > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.musikku-cost-preview > div span {
+  color: var(--mk-muted);
+  font-size: 10px;
+}
+
+.musikku-cost-preview > div strong {
+  color: var(--mk-text);
+  font-size: 10px;
+}
+
+.musikku-cost-preview .musikku-cost-total {
+  margin-top: 12px;
+  margin-bottom: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #e8ddcf;
+}
+
+.musikku-cost-preview .musikku-cost-total span,
+.musikku-cost-preview .musikku-cost-total strong {
+  color: var(--mk-brown-dark);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.musikku-cost-preview small {
+  display: block;
+  color: var(--mk-muted);
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+/* LOGOUT MODAL */
+
+.musikku-confirm-modal {
+  width: min(370px, 100%);
+  padding: 28px;
+  border-radius: 16px;
+  background: white;
+  text-align: center;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+}
+
+.musikku-confirm-icon {
+  width: 53px;
+  height: 53px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: var(--mk-cream);
+  color: var(--mk-brown);
+  font-size: 25px;
+}
+
+.musikku-confirm-modal h2 {
+  margin: 0 0 8px;
+  color: var(--mk-brown-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.musikku-confirm-modal p {
+  margin: 0;
+  color: var(--mk-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.musikku-confirm-modal .musikku-modal-actions {
+  justify-content: center;
+}
+
+/* TOAST */
+
+.musikku-toast {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 150;
+  width: min(390px, calc(100% - 30px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 14px 16px;
+  border: 1px solid #e4d7c9;
+  border-left: 4px solid var(--mk-brown);
+  border-radius: 10px;
+  background: white;
+  color: var(--mk-text);
+  box-shadow: 0 10px 35px rgba(40, 29, 22, 0.13);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.musikku-toast button {
+  flex-shrink: 0;
+  border: 0;
+  background: transparent;
+  color: var(--mk-brown);
+  font-size: 20px;
+}
+
+/* FOOTER */
+
+.musikku-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 25px;
+  border-top: 1px solid var(--mk-border);
+  background: white;
+  color: var(--mk-muted);
+  font-size: 10px;
+}
+
+.musikku-footer strong {
+  color: var(--mk-brown);
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+}
+
+.musikku-footer small {
+  color: #a99d92;
+}
+
+/* TABLET */
+
+@media (max-width: 950px) {
+  .musikku-navbar-inner {
+    width: min(100% - 32px, 1180px);
+    gap: 15px;
+  }
+
+  .musikku-main {
+    width: calc(100% - 32px);
+  }
+
+  .musikku-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .musikku-hero {
+    padding: 45px;
+  }
+
+  .musikku-hero-decoration {
+    right: -8%;
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 720px) {
+  .musikku-navbar-inner {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .musikku-brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .musikku-account {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .musikku-account-name {
+    display: none;
+  }
+
+  .musikku-logout-button {
+    margin-left: 0;
+  }
+
+  .musikku-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: center;
+    padding-top: 8px;
+    border-top: 1px solid #f0ebe5;
+  }
+
+  .musikku-nav button {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 7px;
+    font-size: 11px;
+  }
+
+  .musikku-main {
+    padding-top: 20px;
+  }
+
+  .musikku-hero {
+    min-height: 320px;
+    padding: 35px 28px;
+  }
+
+  .musikku-hero h1 {
+    font-size: 34px;
+  }
+
+  .musikku-hero-decoration {
+    right: -28%;
+    opacity: 0.23;
+  }
+
+  .musikku-stat-grid {
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .musikku-stat-card {
+    min-height: 88px;
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .musikku-stat-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 19px;
+  }
+
+  .musikku-stat-card strong {
+    font-size: 21px;
+  }
+
+  .musikku-stat-card span:last-child {
+    font-size: 9px;
+  }
+
+  .musikku-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .musikku-product-image {
+    height: 155px;
+  }
+
+  .musikku-rule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .musikku-fine-panel {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .musikku-history-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* HP */
+
+@media (max-width: 480px) {
+  .musikku-navbar-inner {
+    width: calc(100% - 24px);
+  }
+
+  .musikku-brand-icon {
+    width: 37px;
+    height: 37px;
+    font-size: 22px;
+  }
+
+  .musikku-brand strong {
+    font-size: 19px;
+  }
+
+  .musikku-brand small {
+    font-size: 9px;
+  }
+
+  .musikku-avatar {
+    width: 33px;
+    height: 33px;
+  }
+
+  .musikku-logout-button {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .musikku-main {
+    width: calc(100% - 24px);
+    padding-top: 15px;
+  }
+
+  .musikku-hero {
+    min-height: 300px;
+    padding: 30px 22px;
+    border-radius: 15px;
+  }
+
+  .musikku-hero h1 {
+    font-size: 29px;
+  }
+
+  .musikku-hero p {
+    max-width: 290px;
+    font-size: 11px;
+  }
+
+  .musikku-hero-decoration {
+    right: -45%;
+    opacity: 0.17;
+  }
+
+  .musikku-primary-button {
+    min-height: 40px;
+    padding: 10px 14px;
+    font-size: 10px;
+  }
+
+  .musikku-stat-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin: 17px 0 40px;
+  }
+
+  .musikku-stat-card {
+    min-height: 73px;
+    padding: 12px 15px;
+  }
+
+  .musikku-stat-card strong {
+    font-size: 20px;
+  }
+
+  .musikku-section {
+    margin-top: 37px;
+  }
+
+  .musikku-section-heading {
+    align-items: flex-start;
+    margin-bottom: 17px;
+  }
+
+  .musikku-section-heading h1,
+  .musikku-section-heading h2 {
+    font-size: 24px;
+  }
+
+  .musikku-section-heading p {
+    font-size: 10px;
+  }
+
+  .musikku-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .musikku-product-image {
+    height: 135px;
+  }
+
+  .musikku-product-image img {
+    padding: 8px;
+  }
+
+  .musikku-product-content {
+    padding: 11px;
+  }
+
+  .musikku-product-content h3 {
+    font-size: 14px;
+  }
+
+  .musikku-product-brand {
+    font-size: 9px;
+  }
+
+  .musikku-product-bottom {
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .musikku-product-bottom > span {
+    align-self: flex-start;
+  }
+
+  .musikku-product-button {
+    width: 100%;
+  }
+
+  .musikku-category-list {
+    gap: 6px;
+  }
+
+  .musikku-category-list button {
+    padding: 7px 10px;
+    font-size: 9px;
+  }
+
+  .musikku-history-card {
+    padding: 15px;
+  }
+
+  .musikku-history-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .musikku-history-top h3 {
+    font-size: 17px;
+  }
+
+  .musikku-history-details {
+    gap: 13px;
+  }
+
+  .musikku-history-details strong {
+    font-size: 10px;
+  }
+
+  .musikku-return-info {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .musikku-return-info .musikku-primary-button {
+    width: 100%;
+  }
+
+  .musikku-refresh-button {
+    padding: 8px 10px;
+    font-size: 9px;
+  }
+
+  .musikku-modal {
+    padding: 18px;
+    border-radius: 13px;
+  }
+
+  .musikku-modal-header h2 {
+    font-size: 21px;
+  }
+
+  .musikku-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .musikku-form-full {
+    grid-column: auto;
+  }
+
+  .musikku-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .musikku-modal-actions button {
+    width: 100%;
+  }
+
+  .musikku-fine-panel {
+    padding: 20px;
+  }
+
+  .musikku-fine-panel h3 {
+    font-size: 19px;
+  }
+
+  .musikku-footer {
+    gap: 7px;
+    padding: 20px 12px;
+    font-size: 9px;
+  }
+
+  .musikku-toast {
+    right: 15px;
+    bottom: 15px;
+    width: calc(100% - 30px);
+  }
+}

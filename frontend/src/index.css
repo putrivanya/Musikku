@@ -1,0 +1,156 @@
+
+/* =========================================
+   MUSIKKU - GLOBAL CSS
+   Full Screen + Responsive
+========================================= */
+
+/* Reset semua elemen */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Pengaturan halaman utama */
+html {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #211a18;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Root React harus memenuhi lebar layar */
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gambar dan media tidak boleh meluber */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+/* Form dan tombol menggunakan font yang sama */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Link */
+a {
+  color: inherit;
+}
+
+/* Fokus keyboard agar mudah digunakan */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(183, 130, 80, 0.65);
+  outline-offset: 3px;
+}
+
+/* Jangan biarkan konten teks memaksa layout melebar */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+/* =========================================
+   LANDING PAGE
+========================================= */
+
+.landing-page {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  flex: 1 0 auto;
+}
+
+/* Semua section landing page mengikuti lebar parent */
+.landing-page > main,
+.landing-page .landing-navbar,
+.landing-page .landing-hero,
+.landing-page .landing-about,
+.landing-page .landing-services,
+.landing-page .landing-footer {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .landing-page {
+    min-width: 0;
+  }
+}
+
+/* Mengurangi animasi bagi pengguna yang memilih
+   pengurangan gerakan pada perangkatnya */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

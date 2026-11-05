@@ -1,0 +1,684 @@
+
+/* =========================================
+   MUSIKKU - HALAMAN PEMINJAMAN
+   Tema cokelat soft
+========================================= */
+
+.pin-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  width: 100%;
+  color: #49372b;
+  font-family: inherit;
+}
+
+/* HEADING */
+
+.pin-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
+}
+
+.pin-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: #b18a65;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.pin-heading h2 {
+  margin: 0 0 7px;
+  color: #49372b;
+  font-size: 25px;
+  font-weight: 750;
+}
+
+.pin-heading p,
+.pin-table-heading p,
+.pin-form-heading p {
+  margin: 0;
+  color: #a08b7b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.pin-heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+
+.pin-card {
+  min-width: 0;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #ecdfd2;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgb(70 47 29 / 4%);
+}
+
+.pin-list-card {
+  margin-top: 2px;
+}
+
+.pin-form-card {
+  animation: pinAppear 0.2s ease;
+}
+
+@keyframes pinAppear {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BUTTON UMUM */
+
+.pin-primary,
+.pin-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 39px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.pin-primary {
+  color: #fff;
+  background: #62442f;
+  border-color: #62442f;
+}
+
+.pin-primary:hover:not(:disabled) {
+  background: #79563c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgb(98 68 47 / 16%);
+}
+
+.pin-secondary {
+  color: #654b38;
+  background: #f7f0e9;
+  border-color: #eadbca;
+}
+
+.pin-secondary:hover:not(:disabled) {
+  background: #eee2d5;
+}
+
+.pin-primary:disabled,
+.pin-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* FORM HEADING */
+
+.pin-form-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.pin-form-heading h3,
+.pin-table-heading h3 {
+  margin: 0 0 7px;
+  color: #503a2b;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.pin-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 33px;
+  border: 0;
+  border-radius: 8px;
+  color: #846b58;
+  background: #f6eee7;
+  font-size: 23px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pin-close:hover {
+  background: #f0dfd0;
+  color: #49372b;
+}
+
+/* FORM INPUT */
+
+.pin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.pin-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #725942;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pin-form-grid input,
+.pin-form-grid select,
+.pin-form-grid textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 41px;
+  padding: 11px 12px;
+  border: 1px solid #e7d9ca;
+  border-radius: 9px;
+  outline: none;
+  background: #fffdfa;
+  color: #49372b;
+  font-family: inherit;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.pin-form-grid textarea {
+  resize: vertical;
+}
+
+.pin-form-grid input:focus,
+.pin-form-grid select:focus,
+.pin-form-grid textarea:focus {
+  border-color: #b18a65;
+  box-shadow: 0 0 0 3px rgb(177 138 101 / 13%);
+}
+
+.pin-form-grid input::placeholder,
+.pin-form-grid textarea::placeholder {
+  color: #b6a596;
+}
+
+.pin-full {
+  grid-column: 1 / -1;
+}
+
+.pin-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 22px;
+  padding-top: 17px;
+  border-top: 1px solid #f0e8df;
+}
+
+/* TABLE HEADING */
+
+.pin-table-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 19px;
+}
+
+/* SEARCH */
+
+.pin-search-wrap {
+  position: relative;
+  width: 280px;
+  max-width: 100%;
+}
+
+.pin-search-wrap > span {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #a18a76;
+  font-size: 19px;
+  pointer-events: none;
+}
+
+.pin-search {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 39px;
+  padding: 10px 12px 10px 36px;
+  border: 1px solid #e8dace;
+  border-radius: 9px;
+  outline: none;
+  background: #fffdfa;
+  color: #49372b;
+  font-family: inherit;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.pin-search:focus {
+  border-color: #b18a65;
+  box-shadow: 0 0 0 3px rgb(177 138 101 / 12%);
+}
+
+/* TABLE */
+
+.pin-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #eee4da;
+  border-radius: 11px;
+}
+
+.pin-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+
+.pin-table thead th {
+  padding: 14px 12px;
+  background: #faf6f1;
+  color: #896d55;
+  border-bottom: 1px solid #eee4da;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pin-table tbody td {
+  padding: 14px 12px;
+  color: #705b49;
+  border-bottom: 1px solid #f0e9e2;
+  vertical-align: middle;
+}
+
+.pin-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.pin-table tbody tr:hover {
+  background: #fffcf8;
+}
+
+.pin-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.pin-number,
+.pin-quantity {
+  color: #9b8066 !important;
+  font-weight: 700;
+}
+
+.pin-borrower {
+  color: #503a2b !important;
+  font-weight: 700;
+}
+
+.pin-date {
+  white-space: nowrap;
+}
+
+/* STATUS */
+
+.pin-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 75px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.pin-status.menunggu {
+  color: #98631c;
+  background: #fff2d9;
+}
+
+.pin-status.disetujui {
+  color: #287447;
+  background: #e2f5e8;
+}
+
+.pin-status.dipinjam {
+  color: #285ca8;
+  background: #e5efff;
+}
+
+.pin-status.ditolak {
+  color: #b43e38;
+  background: #ffebea;
+}
+
+.pin-status.dibatalkan {
+  color: #6d625a;
+  background: #efedea;
+}
+
+.pin-status.selesai {
+  color: #596579;
+  background: #e9edf4;
+}
+
+/* =========================================
+   TOMBOL AKSI
+========================================= */
+
+.pin-action-cell {
+  min-width: 190px;
+  padding: 12px !important;
+  vertical-align: middle;
+}
+
+.pin-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 31px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pin-btn span {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.pin-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgb(65 45 28 / 10%);
+}
+
+.pin-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.pin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* EDIT */
+
+.pin-btn-edit {
+  color: #8b5b18;
+  background: #fff3df;
+  border-color: #f0dfc0;
+}
+
+.pin-btn-edit:hover:not(:disabled) {
+  color: #74480e;
+  background: #f8e5c2;
+}
+
+/* SETUJUI */
+
+.pin-btn-approve {
+  color: #287544;
+  background: #e5f5e9;
+  border-color: #ccebd5;
+}
+
+.pin-btn-approve:hover:not(:disabled) {
+  background: #ccebd5;
+}
+
+/* TOLAK */
+
+.pin-btn-reject {
+  color: #b33e35;
+  background: #fff0ed;
+  border-color: #f5d4cf;
+}
+
+.pin-btn-reject:hover:not(:disabled) {
+  background: #fbdcd6;
+}
+
+/* HAPUS */
+
+.pin-btn-delete {
+  color: #b63838;
+  background: #feecec;
+  border-color: #f3d0d0;
+}
+
+.pin-btn-delete:hover:not(:disabled) {
+  background: #fbd5d5;
+}
+
+/* BATALKAN */
+
+.pin-btn-cancel {
+  color: #68594d;
+  background: #f1efed;
+  border-color: #e3dcd5;
+}
+
+.pin-btn-cancel:hover:not(:disabled) {
+  background: #e5dfd9;
+}
+
+/* KONFIRMASI KEMBALI */
+
+.pin-btn-return {
+  color: #285ca8;
+  background: #e7f1ff;
+  border-color: #cbdcf7;
+}
+
+.pin-btn-return:hover:not(:disabled) {
+  background: #d5e5ff;
+}
+
+/* TRANSAKSI SELESAI */
+
+.pin-action-complete {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  background: #edf0f5;
+  color: #596579;
+  font-size: 10px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+/* LOADING */
+
+.pin-processing {
+  display: inline-block;
+  margin-top: 7px;
+  color: #a17c51;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.pin-loader {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #eee2d5;
+  border-top-color: #9b704d;
+  border-radius: 50%;
+  animation: pinSpin 0.8s linear infinite;
+}
+
+@keyframes pinSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pin-state {
+  padding: 35px 15px !important;
+  text-align: center;
+  color: #a18b78 !important;
+}
+
+.pin-state p {
+  margin: 9px 0 0;
+  font-size: 12px;
+}
+
+.pin-empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: #f6eee6;
+  color: #9b795a;
+  font-size: 22px;
+}
+
+/* ALERT */
+
+.pin-alert {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 15px;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.pin-alert.success {
+  color: #287447;
+  background: #eaf7ee;
+  border: 1px solid #cdebd6;
+}
+
+.pin-alert.error {
+  color: #a12f2a;
+  background: #fff0ef;
+  border: 1px solid #f4d0cd;
+}
+
+.pin-alert > span {
+  font-weight: 900;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .pin-card {
+    padding: 17px;
+  }
+
+  .pin-table {
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 700px) {
+  .pin-heading {
+    align-items: flex-start;
+  }
+
+  .pin-heading h2 {
+    font-size: 22px;
+  }
+
+  .pin-heading-actions {
+    width: 100%;
+  }
+
+  .pin-heading-actions button {
+    flex: 1;
+  }
+
+  .pin-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .pin-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pin-full {
+    grid-column: auto;
+  }
+
+  .pin-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .pin-form-actions button {
+    width: 100%;
+  }
+
+  .pin-table-heading {
+    align-items: flex-start;
+  }
+
+  .pin-search-wrap {
+    width: 100%;
+  }
+
+  .pin-table {
+    min-width: 1000px;
+  }
+
+  .pin-action-cell {
+    min-width: 190px;
+  }
+}

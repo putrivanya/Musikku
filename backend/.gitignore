@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Environment & secrets (jangan commit)
+.env
+.env.*
+!.env.example
+.rotated-credentials.txt
+
+# Uploads pengguna
+uploads/*
+!uploads/.gitkeep
+!uploads/alat/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*

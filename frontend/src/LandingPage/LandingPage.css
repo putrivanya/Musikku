@@ -1,0 +1,1003 @@
+
+/* ========================================
+   MUSIKKU LANDING PAGE
+   Full screen, clean, responsive
+======================================== */
+
+.landing-page,
+.landing-page * {
+  box-sizing: border-box;
+}
+
+.landing-page {
+  --cream: #f8f2e9;
+  --brown: #6d4a34;
+  --brown-dark: #493020;
+  --gold: #b78250;
+  --text: #211a18;
+  --muted: #82746b;
+  --white: #ffffff;
+
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--white);
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  overflow-x: clip;
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.landing-page .landing-navbar {
+  width: 100%;
+  min-height: 88px;
+  padding: 18px clamp(24px, 7vw, 110px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 32px;
+  background: #fff;
+  border-bottom: 1px solid #eee5dc;
+  position: relative;
+  z-index: 10;
+}
+
+.landing-page .landing-logo {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  color: var(--text);
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1.4px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.landing-page .landing-logo span {
+  color: var(--gold);
+}
+
+.landing-page .landing-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 44px);
+}
+
+.landing-page .landing-nav-links a {
+  color: #62544a;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.landing-page .landing-nav-links a:hover {
+  color: var(--gold);
+}
+
+.landing-page .landing-nav-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-page button {
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.landing-page button:hover {
+  transform: translateY(-2px);
+}
+
+.landing-page .btn-login,
+.landing-page .btn-register {
+  min-height: 44px;
+  padding: 0 23px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.landing-page .btn-login {
+  background: #fff;
+  color: var(--brown);
+  border: 1px solid #ddc6b1;
+}
+
+.landing-page .btn-login:hover {
+  background: var(--cream);
+}
+
+.landing-page .btn-register {
+  background: var(--brown);
+  color: #fff;
+  border: 1px solid var(--brown);
+}
+
+.landing-page .btn-register:hover {
+  background: var(--brown-dark);
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.landing-page .landing-hero {
+  width: 100%;
+  min-height: min(720px, calc(100vh - 88px));
+  padding: clamp(64px, 8vh, 100px) clamp(28px, 10vw, 150px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(45px, 7vw, 110px);
+  background:
+    radial-gradient(
+      circle at 82% 48%,
+      rgba(183, 130, 80, 0.09),
+      transparent 30%
+    ),
+    var(--cream);
+}
+
+.landing-page .hero-content {
+  width: 100%;
+  max-width: 620px;
+  min-width: 0;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.landing-page .hero-label,
+.landing-page .section-label {
+  margin: 0 0 22px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.7;
+}
+
+.landing-page .hero-content h1 {
+  margin: 0;
+  color: #171313;
+  font-size: clamp(42px, 4.5vw, 68px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2.8px;
+  overflow-wrap: normal;
+}
+
+.landing-page .hero-content h1 span {
+  color: var(--gold);
+}
+
+.landing-page .hero-description {
+  max-width: 530px;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.landing-page .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.landing-page .btn-hero-primary,
+.landing-page .btn-hero-secondary {
+  min-height: 50px;
+  padding: 0 23px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.landing-page .btn-hero-primary {
+  color: #fff;
+  background: var(--brown);
+  border: 1px solid var(--brown);
+}
+
+.landing-page .btn-hero-primary:hover {
+  background: var(--brown-dark);
+  box-shadow: 0 8px 20px rgba(73, 48, 32, 0.15);
+}
+
+.landing-page .btn-hero-primary span {
+  font-size: 18px;
+}
+
+.landing-page .btn-hero-secondary {
+  color: var(--brown);
+  background: transparent;
+  border: 1px solid #d8c0aa;
+}
+
+.landing-page .btn-hero-secondary:hover {
+  background: #fff;
+}
+
+.landing-page .hero-note {
+  margin: 25px 0 0;
+  color: #927e6c;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   HERO ILLUSTRATION
+======================================== */
+
+.landing-page .hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  min-width: 0;
+  min-height: 430px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  isolation: isolate;
+}
+
+.landing-page .hero-circle {
+  position: absolute;
+  z-index: -1;
+  width: min(82%, 370px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #e8d9c7;
+}
+
+.landing-page .hero-card {
+  position: relative;
+  z-index: 1;
+  width: min(76%, 330px);
+  min-height: 285px;
+  padding: 34px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 30px;
+  box-shadow: 0 25px 65px rgba(85, 58, 37, 0.09);
+  transform: rotate(-3deg);
+}
+
+.landing-page .guitar-icon {
+  font-size: clamp(68px, 7vw, 95px);
+  line-height: 1.2;
+}
+
+.landing-page .hero-card h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(20px, 2vw, 25px);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.landing-page .hero-card p {
+  max-width: 230px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.landing-page .hero-small-card {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 30px;
+  width: min(270px, 68%);
+  min-height: 88px;
+  padding: 17px 19px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: #fff;
+  border-radius: 17px;
+  box-shadow: 0 14px 40px rgba(85, 58, 37, 0.1);
+}
+
+.landing-page .hero-small-card > span {
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 28px;
+}
+
+.landing-page .hero-small-card strong {
+  display: block;
+  color: var(--brown-dark);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.landing-page .hero-small-card p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.landing-page .music-symbol {
+  position: absolute;
+  color: var(--gold);
+  font-size: 42px;
+  line-height: 1;
+}
+
+.landing-page .symbol-one {
+  top: 9%;
+  right: 8%;
+}
+
+.landing-page .symbol-two {
+  bottom: 12%;
+  left: 4%;
+}
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
+.landing-page .landing-about {
+  width: 100%;
+  padding: 95px 24px;
+  text-align: center;
+  background: #fff;
+}
+
+.landing-page .landing-about .section-label,
+.landing-page .landing-services .section-label {
+  margin-bottom: 13px;
+}
+
+.landing-page .landing-about h2,
+.landing-page .landing-services h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(29px, 3vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  line-height: 1.3;
+}
+
+.landing-page .landing-about > p:last-child {
+  max-width: 680px;
+  margin: 20px auto 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* ========================================
+   SERVICES SECTION
+======================================== */
+
+.landing-page .landing-services {
+  width: 100%;
+  padding: 90px clamp(24px, 8vw, 120px) 100px;
+  text-align: center;
+  background: #faf7f2;
+}
+
+.landing-page .service-cards {
+  width: 100%;
+  max-width: 1100px;
+  margin: 45px auto 35px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  text-align: left;
+}
+
+.landing-page .service-card {
+  min-width: 0;
+  min-height: 225px;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #eee5dc;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(85, 58, 37, 0.035);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.landing-page .service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(85, 58, 37, 0.08);
+}
+
+.landing-page .service-icon {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--cream);
+  border-radius: 15px;
+  font-size: 27px;
+}
+
+.landing-page .service-card h3 {
+  margin: 22px 0 10px;
+  color: var(--brown-dark);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.landing-page .service-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.landing-page .landing-services > .btn-hero-primary {
+  margin: 0 auto;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.landing-page .landing-footer {
+  width: 100%;
+  padding: 35px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  background: #fff;
+  border-top: 1px solid #eee5dc;
+}
+
+.landing-page .landing-footer .landing-logo {
+  font-size: 24px;
+}
+
+.landing-page .landing-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.landing-page .landing-footer small {
+  color: #9c8e82;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+  .landing-page .landing-navbar {
+    padding-inline: 32px;
+    gap: 20px;
+  }
+
+  .landing-page .landing-hero {
+    padding: 70px 48px;
+    gap: 35px;
+  }
+
+  .landing-page .hero-content h1 {
+    font-size: clamp(40px, 5vw, 55px);
+    letter-spacing: -2px;
+  }
+
+  .landing-page .hero-visual {
+    min-height: 370px;
+  }
+
+  .landing-page .hero-card {
+    min-height: 250px;
+  }
+
+  .landing-page .hero-small-card {
+    right: -5px;
+    bottom: 12px;
+  }
+
+  .landing-page .landing-services {
+    padding-inline: 40px;
+  }
+
+  .landing-page .service-cards {
+    gap: 18px;
+  }
+
+  .landing-page .service-card {
+    padding: 24px;
+  }
+}
+
+/* ========================================
+   MOBILE NAVBAR
+======================================== */
+
+@media (max-width: 700px) {
+  .landing-page .landing-navbar {
+    min-height: auto;
+    padding: 18px 20px;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+  }
+
+  .landing-page .landing-logo {
+    font-size: 24px;
+  }
+
+  .landing-page .landing-nav-links {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    padding-top: 12px;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid #f0e8df;
+  }
+
+  .landing-page .landing-nav-links a {
+    font-size: 12px;
+  }
+
+  .landing-page .landing-nav-buttons {
+    gap: 8px;
+  }
+
+  .landing-page .btn-login,
+  .landing-page .btn-register {
+    min-height: 39px;
+    padding: 0 13px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+
+  /* Hero menjadi satu kolom di HP */
+  .landing-page .landing-hero {
+    min-height: auto;
+    padding: 58px 24px 55px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .landing-page .hero-content {
+    max-width: 560px;
+    text-align: center;
+  }
+
+  .landing-page .hero-label {
+    margin-bottom: 17px;
+    font-size: 10px;
+    letter-spacing: 1.7px;
+  }
+
+  .landing-page .hero-content h1 {
+    font-size: clamp(36px, 8vw, 52px);
+    line-height: 1.16;
+    letter-spacing: -1.8px;
+  }
+
+  .landing-page .hero-description {
+    margin: 20px auto 0;
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .landing-page .hero-buttons {
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+  }
+
+  .landing-page .btn-hero-primary,
+  .landing-page .btn-hero-secondary {
+    min-height: 47px;
+    padding-inline: 17px;
+    font-size: 12px;
+  }
+
+  .landing-page .hero-note {
+    margin-top: 19px;
+    font-size: 11px;
+  }
+
+  .landing-page .hero-visual {
+    width: 100%;
+    max-width: 420px;
+    min-height: 340px;
+  }
+
+  .landing-page .hero-circle {
+    width: min(78%, 300px);
+  }
+
+  .landing-page .hero-card {
+    width: min(76%, 290px);
+    min-height: 235px;
+    padding: 25px 18px;
+    gap: 8px;
+    border-radius: 24px;
+  }
+
+  .landing-page .guitar-icon {
+    font-size: 68px;
+  }
+
+  .landing-page .hero-card h2 {
+    font-size: 20px;
+  }
+
+  .landing-page .hero-card p {
+    font-size: 12px;
+  }
+
+  .landing-page .hero-small-card {
+    right: 0;
+    bottom: 4px;
+    width: min(255px, 75%);
+    min-height: 74px;
+    padding: 12px 14px;
+  }
+
+  .landing-page .hero-small-card > span {
+    font-size: 24px;
+  }
+
+  .landing-page .symbol-one {
+    top: 5%;
+    right: 5%;
+  }
+
+  .landing-page .symbol-two {
+    bottom: 7%;
+    left: 3%;
+  }
+
+  .landing-page .landing-about {
+    padding: 68px 24px;
+  }
+
+  .landing-page .landing-about h2,
+  .landing-page .landing-services h2 {
+    font-size: clamp(27px, 6vw, 36px);
+  }
+
+  .landing-page .landing-about > p:last-child {
+    font-size: 14px;
+  }
+
+  .landing-page .landing-services {
+    padding: 68px 22px 75px;
+  }
+
+  .landing-page .service-cards {
+    max-width: 480px;
+    margin-top: 32px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .landing-page .service-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .landing-page .service-card h3 {
+    margin-top: 17px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 380px) {
+  .landing-page .landing-navbar {
+    padding-inline: 14px;
+    gap: 10px;
+  }
+
+  .landing-page .landing-logo {
+    font-size: 21px;
+  }
+
+  .landing-page .btn-login,
+  .landing-page .btn-register {
+    padding-inline: 10px;
+    font-size: 11px;
+  }
+
+  .landing-page .landing-nav-links {
+    gap: 8px;
+  }
+
+  .landing-page .landing-nav-links a {
+    font-size: 11px;
+  }
+
+  .landing-page .landing-hero {
+    padding-inline: 18px;
+  }
+
+  .landing-page .hero-content h1 {
+    font-size: 35px;
+    letter-spacing: -1.5px;
+  }
+
+  .landing-page .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .landing-page .btn-hero-primary,
+  .landing-page .btn-hero-secondary {
+    width: 100%;
+  }
+
+  .landing-page .hero-visual {
+    min-height: 300px;
+  }
+
+  .landing-page .hero-small-card {
+    width: 78%;
+  }
+}
+
+/* ========================================
+   REDUCE MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-page *,
+  .landing-page *::before,
+  .landing-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+/* =========================
+   KONTAK LANDING PAGE
+========================= */
+
+.landing-contact {
+  padding: 85px 7%;
+  background: #faf6ed;
+  scroll-margin-top: 90px;
+}
+
+.landing-contact-heading {
+  max-width: 680px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.landing-contact-heading h2 {
+  margin: 12px 0;
+  color: #4a3025;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.25;
+}
+
+.landing-contact-heading > p:last-child {
+  margin: 0;
+  color: #817267;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.landing-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.landing-contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid #eadfce;
+  border-radius: 18px;
+  background: #fffdf8;
+  box-shadow: 0 8px 24px rgba(74, 48, 37, 0.05);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.landing-contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(74, 48, 37, 0.1);
+}
+
+.landing-contact-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  background: #f1e5d2;
+  font-size: 24px;
+}
+
+.landing-contact-info {
+  min-width: 0;
+}
+
+.landing-contact-info h3 {
+  margin: 2px 0 8px;
+  color: #4a3025;
+  font-size: 18px;
+}
+
+.landing-contact-info p {
+  margin: 0 0 12px;
+  color: #817267;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.landing-contact-info a {
+  display: inline-block;
+  color: #946b36;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.landing-contact-info a:hover {
+  color: #4a3025;
+  text-decoration: underline;
+}
+
+.landing-contact-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1050px;
+  margin: 35px auto 0;
+  padding: 28px 30px;
+  border-radius: 18px;
+  background: #4a3025;
+}
+
+.landing-contact-cta h3 {
+  margin: 0 0 7px;
+  color: #fffaf2;
+  font-size: 21px;
+}
+
+.landing-contact-cta p {
+  margin: 0;
+  color: #e6d7c5;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.landing-contact-cta .btn-hero-primary {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.landing-footer-links,
+.landing-footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin: 15px 0;
+}
+
+.landing-footer-links a,
+.landing-footer-contact a {
+  color: inherit;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.landing-footer-links a:hover,
+.landing-footer-contact a:hover {
+  color: #c49a45;
+}
+
+.landing-footer small {
+  display: block;
+  margin-top: 18px;
+}
+
+/* Tablet dan ponsel */
+@media (max-width: 768px) {
+  .landing-contact {
+    padding: 65px 5%;
+  }
+
+  .landing-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .landing-contact-card {
+    padding: 21px;
+  }
+
+  .landing-contact-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-contact-heading {
+    text-align: left;
+  }
+
+  .landing-contact-card {
+    gap: 13px;
+    padding: 17px;
+  }
+
+  .landing-contact-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 21px;
+  }
+
+  .landing-contact-info h3 {
+    font-size: 16px;
+  }
+
+  .landing-contact-info p,
+  .landing-contact-info a {
+    font-size: 13px;
+  }
+
+  .landing-contact-cta {
+    padding: 20px;
+  }
+}
